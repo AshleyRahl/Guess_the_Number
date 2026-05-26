@@ -21,3 +21,24 @@ This project demonstrates basic game loops, input validation, and conditional br
 2. Run the script:
    ```bash
    python guess_the_number.py
+
+---
+
+# Guess the Number (Computer Edition)
+
+In this version of the game, the tables are turned! You think of a number, and the computer tries to guess it.
+
+## 🧠 The Logic: Binary Search Principles
+This project demonstrates **Dynamic Range Adjustment**. Every time you tell the computer its guess is too high or too low, it updates its boundaries:
+* **If Too High:** The computer sets its `maximum` to `guess - 1`.
+* **If Too Low:** The computer sets its `minimum` to `guess + 1`.
+
+
+## 🚀 Technical Features
+- **Inverse Logic:** Instead of tracking user attempts, the program manages stateful `low` and `high` variables to narrow down the search space.
+- **Dynamic Range:** The user decides how large the "search field" is (e.g., 1 to 1000).
+- **Feedback Loop:** Uses a `while` loop that persists until the "Correct" signal is received.
+
+## 🏃 How to Run
+```bash
+python computer_guess.py
