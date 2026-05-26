@@ -14,6 +14,7 @@ This project demonstrates basic game loops, input validation, and conditional br
 - **Randomization:** Utilizes the `random` module to ensure a unique experience every game.
 - **Game Loop:** Employs a `while` loop to maintain the game state until the win condition is met.
 - **Modular Design:** Uses a `main()` function to keep the entry point clean and organized.
+- **Input Validation:** Implemented `try/except` blocks to handle `ValueError` exceptions, preventing the program from crashing if a user enters non-numeric text.
 
 ## How to Run
 1. Ensure you have Python 3 installed.

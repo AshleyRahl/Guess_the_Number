@@ -18,14 +18,20 @@ def guess(x):
 
     # While users guess is not the random number keep looping till user guess corectally
     while guess != random_number: 
-        # Ask user to guess and convert to integer
-        guess = int(input(f"Guess a number: ")) 
-        
-        # Check if the user's guess is too low, high or correct
-        if guess < random_number: # if user guess too low
-            print("Sorry, guess again. Too Low!")
-        elif guess > random_number: # if user guess too high
-            print("Sorry, guess again. Too High!")
+        # Add a try-except block to handle non-integer inputs and program from crashing
+        try:
+            # Ask user to guess and convert to integer
+            guess = int(input(f"Guess a number: ")) 
+            
+            # Check if the user's guess is too low, high or correct
+            if guess < random_number: # if user guess too low
+                print("Sorry, guess again. Too Low!")
+            elif guess > random_number: # if user guess too high
+                print("Sorry, guess again. Too High!")
+        # 
+        except ValueError:
+            print("Invalid input! Please enter a numerical number (e.g., 1).")
+            continue # Skip the rest of the loop and prompt user to guess again
         
     # If the user guess correctly, break the loop and print congrats message
     print(f"\nYay, congrats. You have guessed the number {random_number} correctly!")
@@ -36,27 +42,33 @@ def main():
     print("\n --- Welcome to Guess the Number Game! ---\n")
     print("This computer holds a secret number and you need to guess it.\n")
 
+
     print("Difficulty Level:\n" \
         "1. Easy - between 1 and 10\n" \
         "2. Medium - between 1 and 50\n" \
         "3. Hard - between 1 and 100\n")
-
-    # Ask user to choose the game difficulty level
-    difficulty = int(input("Choose difficulty Level (1-3): "))
-    print()
-    
-    # Choose range depending on user's choice
-    # Call guess function based on difficalty level
-    if difficulty == 1: # Easy level - between 1 and 10
-        print("I am thinking of a number between 1 and 10.")
-        guess(10)
-    elif difficulty == 2: # Medium level - between 1 and 50
-        print("I am thinking of a number between 1 and 50.")
-        guess(50)
-    elif difficulty == 3: # Hard level - between 1 and 100
-        print("I am thinking of a number between 1 and 100.")
-        guess(100)
-
+# Keep asking until they pick a valid difficulty
+    while True:
+        try:
+            # Ask user to choose the game difficulty level
+            difficulty = int(input("Choose difficulty Level (1-3): "))
+            print()
+            
+            # Choose range depending on user's choice
+            # Call guess function based on difficalty level
+            if difficulty == 1: # Easy level - between 1 and 10
+                print("I am thinking of a number between 1 and 10.")
+                guess(10)
+            elif difficulty == 2: # Medium level - between 1 and 50
+                print("I am thinking of a number between 1 and 50.")
+                guess(50)
+            elif difficulty == 3: # Hard level - between 1 and 100
+                print("I am thinking of a number between 1 and 100.")
+                guess(100)
+            else: # This else block will execute if user input is not 1, 2 or 3
+                print("Invalid choice! Please choose between 1 and 3.")
+        except ValueError:
+            print("Invalid input! Please enter a numerical number (e.g., 1, 2 or 3).")
 
 main() # Call the main function - to Start the game
       
