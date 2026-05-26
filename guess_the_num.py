@@ -1,10 +1,11 @@
 """
-Guess the Number Game
-This is a simple command-line game where the user/player tries to guess a randomly generated number within a certain range.
-A game where you need to guess a randomly generated number.
-
-This computer holds a secret number and you need to guess it.
-You can choose the difficulty level to make it more fun and challenging.
+Project: Guess the Number Game
+Version: 1.1.0
+Author: AC Rahl
+Description: 
+    A terminal-based game where the user need to guess the randomly generated number by the computer. 
+    User can choose the difficulty level to make it more fun and challenging. 
+    The program uses a while loop and conditional logic to provide feedback until the correct number is guessed.
 """
 
 import random # Import the random module to generate random numbers
@@ -27,12 +28,14 @@ def guess(x):
             print("Sorry, guess again. Too High!")
         
     # If the user guess correctly, break the loop and print congrats message
-    print(f"Yay, congrats. You have guessed the number {random_number} correctly!")
+    print(f"\nYay, congrats. You have guessed the number {random_number} correctly!")
+
 
 def main():
     # Welcome message and instructions for the game
     print("\n --- Welcome to Guess the Number Game! ---\n")
     print("This computer holds a secret number and you need to guess it.\n")
+
     print("Difficulty Level:\n" \
         "1. Easy - between 1 and 10\n" \
         "2. Medium - between 1 and 50\n" \
@@ -42,6 +45,8 @@ def main():
     difficulty = int(input("Choose difficulty Level (1-3): "))
     print()
     
+    # Choose range depending on user's choice
+    # Call guess function based on difficalty level
     if difficulty == 1: # Easy level - between 1 and 10
         print("I am thinking of a number between 1 and 10.")
         guess(10)
